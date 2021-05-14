@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.inhatc.mappers.CpubenchMapper">
+<insert id="create">
+	insert into cpu_bench(cpu_num,cpu_name,benchi_value,price)
+	values (#{CPU_num},#{CPU_name},#{benchi_value},#{price})
+</insert>
+
+<select id = "read" resultType = "com.inhatc.domain.CpubenchVO">
+	select cpu_num, cpu_name, benchi_value, price
+	from cpu_bench
+	where cpu_num = #{CPU_num}
+</select>
+
+<update id = "update">
+	update cpu_bench set cpu_name=#{CPU_name}, benchi_value=#{benchi_value},price=#{price}
+	where cpu_num = #{CPU_num}
+</update>
+
+<delete id = "delete">
+	delete from cpu_bench where cpu_num = #{CPU_num}
+</delete>
+
+	<select id = "listAll" resultType = "com.inhatc.domain.CpubenchVO">
+	<![CDATA[
+	select cpu_num, cpu_name, benchi_value, price
+	from cpu_bench
+	where cpu_num > 0
+	oreder by cpu_num desc
+	]]>
+	</select>
+</mapper>

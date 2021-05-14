@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.inhatc.mappers.GpubenchMapper">
+<insert id="create">
+	insert into gpu_bench(gpu_num,gpu_name,benchi_value,price)
+	values (#{GPU_num},#{GPU_name},#{benchi_value},#{price})
+</insert>
+
+<select id = "read" resultType = "com.inhatc.domain.GpubenchVO">
+	select gpu_num, gpu_name, benchi_value, price
+	from gpu_bench
+	where gpu_num = #{GPU_num}
+</select>
+
+<update id = "update">
+	update gpu_bench set price=#{price}
+	where gpu_num = 1;
+</update>
+
+<delete id = "delete">
+	delete from gpu_bench where gpu_num = #{gpu_num}
+</delete>
+
+	<select id = "listAll" resultType = "com.inhatc.domain.GpubenchVO">
+	<![CDATA[
+	select gpu_num, gpu_name, benchi_value, price
+	from gpu_bench
+	where gpu_num > 0
+	oreder by gpu_num desc
+	]]>
+	</select>
+</mapper>
