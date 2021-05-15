@@ -1,5 +1,5 @@
 eclipse.preferences.version=1
-encoding//src/main/java/com/inhatc/service/SeleniumCrawling.java=UTF-8
+encoding//src/main/java/com/inhatc/function/SeleniumCrawling.java=UTF-8
 encoding//src/main/java/com/inhatc/service/SeleniumTest.java=UTF-8
 encoding//src/main/webapp/WEB-INF/views/blog-default.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/views/blog-single.jsp=UTF-8

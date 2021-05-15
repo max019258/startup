@@ -12,6 +12,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import com.inhatc.function.SeleniumCrawling;
 
 /**
  * Handles requests for the application home page.
@@ -40,9 +43,7 @@ public class HomeController {
 	public String blog_single() {
 		return "blog-single";
 	}
-	
-	
-	
+
 	@RequestMapping(value = "contact")
 	public String contact() throws Exception{		 
 		Document doc = Jsoup.connect("http://search.danawa.com/dsearch.php?k1=rtx3060").get();
@@ -57,8 +58,6 @@ public class HomeController {
 		
 		return "contact";
 	}
-	
-	
 	
 	@RequestMapping("projects")
 	public String projects() {
@@ -107,5 +106,13 @@ public class HomeController {
 	@RequestMapping("mainboard_ex")
 	public String mainboard_ex() {
 		return "mainboard_ex";
+	}
+	@RequestMapping(value = "product_page", method = RequestMethod.GET)
+	public String product_page(Model model, @RequestParam("searchinfo") String searchinfo) throws Exception {
+		SeleniumCrawling seleniumCrawling = new SeleniumCrawling();
+		System.out.println("searchinfo text : "+ searchinfo);
+		System.out.println("크롤링 테스트 입니다 : " + seleniumCrawling.price_crwaling("rtx3060"));
+		model.addAttribute("searchinfo", searchinfo);
+		return "product_page";
 	}
 }

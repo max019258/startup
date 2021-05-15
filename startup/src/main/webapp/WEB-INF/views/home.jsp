@@ -3,22 +3,16 @@
 <!-- 한글 패치 -->
 
 <%@ page import="java.util.*"%>
-
-
 <!DOCTYPE html>
 <html lang="kr">
 
 <head>
-
 </head>
 
 <body>
 
-
-
 <!-- head를 포함한 위의 요소들 전부 header.jsp에 있음 -->
 <%@ include file="include/header.jsp" %>
-
 	<div class="space-medium">
 		<div class="container">
 			<div class="row">

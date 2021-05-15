@@ -8,8 +8,8 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.inhatc.domain.GpubenchVO;
+import com.inhatc.function.SeleniumCrawling;
 import com.inhatc.persistence.GpubenchDAO;
-import com.inhatc.service.SeleniumCrawling;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -24,9 +24,9 @@ public class GpubenchDAOTest {
 		@Test
 		public void testupdategpu() throws Exception{
 			SeleniumCrawling sel = new SeleniumCrawling();
-			System.out.println("test" + sel.price_crwaling());
-			GpubenchVO vo = new GpubenchVO();
-			vo.setPrice(sel.price_crwaling());
-			gpudao.update(vo);
+			System.out.println("test" + sel.price_crwaling("rtx3060"));
+//			GpubenchVO vo = new GpubenchVO();
+//			vo.setPrice(sel.price_crwaling());
+//			gpudao.update(vo);
 		}
 }
