@@ -434,7 +434,8 @@ url(../images/cta-section-img.jpg) no-repeat center; background-size: cover; }
 7. Content 
 -------------------------------------*/
 
-.content { padding-top: 100px; padding-bottom: 100px; }
+.content { padding-top: 100px; padding-bottom: 100px; margin-right:330px; margin-left:330px; }
+.content2  { margin-left:15%; }
 
 /*-----------------------------------
 8. Footer 

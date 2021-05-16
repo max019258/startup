@@ -51,6 +51,8 @@
 					<a href="/"><img src="resources/images/logo.png"
 						alt="Interior Design Website Templates Free Download"></a>
 				</div>
+				
+				
 				<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
 					<div class="navigation">
 						<div id="navigation">
