@@ -29,10 +29,10 @@
 
 						<table class="table table-bordered">
 							<tr>
-								<th style="width: 10px">BNO</th>
-								<th>TITLE</th>
-								<th>WRITER</th>
-								<th>REGDATE</th>
+								<th style="width: 10px">CPU_num</th>
+								<th>CPU_name</th>
+								<th>benchi_value</th>
+								<th>price</th>
 							</tr>
 
 

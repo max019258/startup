@@ -8,6 +8,8 @@ public interface CpubenchDAO {
 	public CpubenchVO read(Integer bno)throws Exception;
 	public void update(CpubenchVO vo)throws Exception;
 	public void delete(Integer cpu_num)throws Exception;
+	
+	
 	public List<CpubenchVO> listAll() throws Exception;
 
 }

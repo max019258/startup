@@ -29,7 +29,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	select cpu_num, cpu_name, benchi_value, price
 	from cpu_bench
 	where cpu_num > 0
-	oreder by cpu_num desc
+	order by cpu_num desc
 	]]>
 	</select>
 </mapper>

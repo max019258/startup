@@ -59,13 +59,13 @@ public class HomeController {
 		return "contact";
 	}
 	
-	@RequestMapping("projects")
-	public String projects() {
-		return "projects";
+	@RequestMapping("cpu_bench")
+	public String cpu_bench() {
+		return "cpu_bench";
 	}
-	@RequestMapping("projects-detail")
-	public String projects_detail() {
-		return "projects-detail";
+	@RequestMapping("gpu_bench")
+	public String gpu_bench() {
+		return "gpu_bench";
 	}
 	@RequestMapping("service-detail")
 	public String service_detail() {

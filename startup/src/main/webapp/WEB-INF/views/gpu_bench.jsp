@@ -29,20 +29,20 @@
 
 						<table class="table table-bordered">
 							<tr>
-								<th style="width: 10px">BNO</th>
-								<th>TITLE</th>
-								<th>WRITER</th>
-								<th>REGDATE</th>
+								<th style="width: 10px">GPU_num</th>
+								<th>GPU_name</th>
+								<th>benchi_value</th>
+								<th>price</th>
 							</tr>
 
 
-							<c:forEach items="${list}" var="CpubenchVO">
+							<c:forEach items="${list}" var="GpubenchVO">
 
 								<tr>
-									<td>${CpubenchVO.CPU_num}</td>
-									<td>${CpubenchVO.CPU_name}</td>
-									<td>${CpubenchVO.benchi_value}</td>
-									<td>${CpubenchVO.price}</td>
+									<td>${GpubenchVO.GPU_num}</td>
+									<td>${GpubenchVO.GPU_name}</td>
+									<td>${GpubenchVO.benchi_value}</td>
+									<td>${GpubenchVO.price}</td>
 								</tr>
 
 							</c:forEach>

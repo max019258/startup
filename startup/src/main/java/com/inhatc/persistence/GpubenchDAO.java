@@ -8,6 +8,7 @@ public interface GpubenchDAO {
 	public GpubenchVO read(Integer bno)throws Exception;
 	public void update(GpubenchVO vo)throws Exception;
 	public void delete(Integer gpu_num)throws Exception;
-	public List<GpubenchVO> listAll() throws Exception;
+	public List<GpubenchVO> listAll_gpu() throws Exception;
+
 
 }

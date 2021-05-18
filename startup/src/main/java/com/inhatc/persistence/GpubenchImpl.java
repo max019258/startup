@@ -43,7 +43,7 @@ public class GpubenchImpl implements GpubenchDAO {
   }
 
   @Override
-  public List<GpubenchVO> listAll() throws Exception 
+  public List<GpubenchVO> listAll_gpu() throws Exception 
   {
     return session.selectList(namespace + ".listAll");
   }

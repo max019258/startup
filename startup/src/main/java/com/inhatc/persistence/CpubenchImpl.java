@@ -40,6 +40,9 @@ public class CpubenchImpl implements CpubenchDAO {
   {
     session.delete(namespace + ".delete", cpu_num);
   }
+  
+  
+  
 
   @Override
   public List<CpubenchVO> listAll() throws Exception 

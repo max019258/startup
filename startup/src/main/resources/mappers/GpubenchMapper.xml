@@ -29,7 +29,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	select gpu_num, gpu_name, benchi_value, price
 	from gpu_bench
 	where gpu_num > 0
-	oreder by gpu_num desc
+	order by gpu_num desc
 	]]>
 	</select>
 </mapper>

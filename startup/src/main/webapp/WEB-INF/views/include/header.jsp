@@ -72,8 +72,8 @@
 								<li class="has-sub"><a href="portfolio" title="Portfolio">벤치마크
 										정보</a>
 									<ul>
-										<li><a href="projects" title="Projects">CPU</a></li>
-										<li><a href="projects-detail" title="Projects Detail">GPU</a></li>
+										<li><a href="cpu_bench" title="cpu_bench">CPU</a></li>
+										<li><a href="gpu_bench" title="gpu_bench">GPU</a></li>
 									</ul></li>
 								<li><a href="contact" title="Contact Us">추천견적</a></li>
 							</ul>

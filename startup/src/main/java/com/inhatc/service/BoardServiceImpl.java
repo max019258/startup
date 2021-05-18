@@ -5,49 +5,32 @@ import java.util.List;
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
-import com.inhatc.domain.BoardVO;
-import com.inhatc.persistence.BoardDAO;
+import com.inhatc.domain.CpubenchVO;
+import com.inhatc.domain.GpubenchVO;
+import com.inhatc.persistence.CpubenchDAO;
+import com.inhatc.persistence.GpubenchDAO;
 
 @Service
 public class BoardServiceImpl implements BoardService {
 
+  
   @Inject
-  private BoardDAO dao;
-
-  @Override
-  public void regist(BoardVO board) throws Exception 
-  {
-    dao.create(board);
-  }
-
-  @Override
-  public BoardVO read(Integer bno) throws Exception 
-  {
-    return dao.read(bno);
-  }
-
-  @Override
-  public void modify(BoardVO board) throws Exception 
-  {
-    dao.update(board);
-  }
-/*
-  @Override
-  public void modifyPage(BoardVO board) throws Exception {
-    dao.update(board);
-  }*/
+  private CpubenchDAO Cpu;
   
-  
-  @Override
-  public void remove(Integer bno) throws Exception 
-  {
-    dao.delete(bno);
-  }
+  @Inject
+  private GpubenchDAO Gpu;
+
 
   @Override
-  public List<BoardVO> listAll() throws Exception 
+  public List<CpubenchVO> listAll() throws Exception 
   {
-    return dao.listAll();
+    return Cpu.listAll();
+    
+    
+  }@Override
+  public List<GpubenchVO> listAll_gpu() throws Exception 
+  {
+    return Gpu.listAll_gpu();
   }
 
 
