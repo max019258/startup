@@ -1,5 +1,7 @@
 package com.inhatc.cs;
 
+import java.util.Map;
+
 import javax.inject.Inject;
 
 import org.slf4j.Logger;
@@ -36,4 +38,6 @@ public class BoardController {
     logger.info("show all list......................");
     model.addAttribute("list", service.listAll_gpu());
   }
+  
+
 }

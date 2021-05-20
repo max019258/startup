@@ -1,3 +1,8 @@
+<%@page import="java.sql.SQLException"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.PreparedStatement"%>
+<%@page import="java.sql.Connection"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page session="false" contentType="text/html; charset=UTF-8"%>
 <!-- 한글 패치 -->
@@ -7,6 +12,70 @@
 <html lang="kr">
 
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+	<title>Insert title here</title>
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js">	</script>
+
+
+
+<% 
+	 Class.forName("com.mysql.jdbc.Driver");
+     Connection conn = null;
+     PreparedStatement pstmt = null;
+     ResultSet rs = null; 
+     String[] GPU_name =new String[100];
+     int[] GPU_bench =new int[100];
+     int i =0;
+     try{
+         String jdbcDriver = "jdbc:mysql://localhost:3306/startup?serverTimezone=UTC";
+         String dbUser = "root";
+         String dbPwd = "1234";            
+         conn = DriverManager.getConnection(jdbcDriver, dbUser, dbPwd);             
+         pstmt = conn.prepareStatement("select * from startup.gpu_bench order by benchi_value desc;");     
+         rs = pstmt.executeQuery();
+          while(rs.next()){
+        	  GPU_name[i] =rs.getString("GPU_name");
+        	  GPU_bench[i] =rs.getInt("benchi_value");
+        	  i++;
+            }
+        }catch(SQLException se){
+            se.printStackTrace();
+        }finally{
+            if(rs != null) rs.close();
+            if(pstmt != null) pstmt.close();
+            if(conn != null) conn.close();
+        }
+    %>
+	
+	<script type="text/javascript">
+		google.charts.load('current', {'packages':['corechart']});
+		google.charts.setOnLoadCallback(drawVisualization);
+	
+		function drawVisualization() { 
+			var data = google.visualization.arrayToDataTable([
+					['GPU 제품명', 'GPU_bench'],
+					['<%= GPU_name[0]%>',  <%= GPU_bench[0]%>],
+					['<%= GPU_name[1]%>',  <%= GPU_bench[1]%>],
+					['<%= GPU_name[2]%>',  <%= GPU_bench[2]%>],
+					['<%= GPU_name[3]%>',  <%= GPU_bench[3]%>],
+					['<%= GPU_name[4]%>',  <%= GPU_bench[4]%>]
+				]);
+			var options = {
+					title : '벤치마크 수치 상위 5위까지의 그래픽카드',
+					vAxis: {title: 'bench_value'},
+					hAxis: {title: '그래픽카드 제품명'}, 
+					seriesType: 'bars',
+					series: {5: {type: 'line'}}
+				};
+			
+			var chart = new google.visualization.ComboChart(document.getElementById('chart_div'));
+			chart.draw(data, options);
+		}
+	</script>
+	
+	
+	
+
 
 </head>
 
@@ -23,6 +92,7 @@
 
 				<div class="box">
 					<div class="box-header with-border">
+					<div id="chart_div" style="width:900px; height: 500px;"></div>
 						<h3 class="box-title">LIST ALL PAGE</h3>
 					</div>
 					<div class="box-body">

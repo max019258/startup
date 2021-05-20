@@ -28,8 +28,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<![CDATA[
 	select cpu_num, cpu_name, benchi_value, price
 	from cpu_bench
-	where cpu_num > 0
-	order by cpu_num desc
+	order by benchi_value desc
 	]]>
 	</select>
 </mapper>

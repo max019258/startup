@@ -12,6 +12,8 @@ public interface BoardService {
 
   public List<CpubenchVO> listAll() throws Exception; //  listall()
   
+ 
+  
   public List<GpubenchVO> listAll_gpu() throws Exception; //  listall()
 
 

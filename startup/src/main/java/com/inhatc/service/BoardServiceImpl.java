@@ -27,7 +27,9 @@ public class BoardServiceImpl implements BoardService {
     return Cpu.listAll();
     
     
-  }@Override
+  }
+
+  @Override
   public List<GpubenchVO> listAll_gpu() throws Exception 
   {
     return Gpu.listAll_gpu();
