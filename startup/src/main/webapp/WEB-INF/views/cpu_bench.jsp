@@ -63,12 +63,12 @@
 			var options = {
 					title : '벤치마크 수치 상위 5위까지의 CPU',
 					vAxis: {title: 'bench_value'},
-					hAxis: {title: 'Month'}, 
+					hAxis: {title: 'CPU 제품명'}, 
 					seriesType: 'bars',
 					series: {5: {type: 'line'}}
 				};
 			
-			var chart = new google.visualization.ComboChart(document.getElementById('chart_div'));
+			var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
 			chart.draw(data, options);
 		}
 	</script>

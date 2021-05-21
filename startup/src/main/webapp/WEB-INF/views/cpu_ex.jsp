@@ -34,7 +34,7 @@ b {
 		<h1><b>[CPU란]</b><br><h1>
 			<table width=100%>
 				<tr>
-					<td width=300px><img src="resources/images/cpu.PNG" height="300px" weight="300px"></td>
+					<td width=250px><img src="resources/images/cpu.PNG" height="300px" weight="300px"></td>
 					<th>
 					<br> CPU : 컴퓨터의 가장 중요한 부분중 하나로 컴퓨터의 뇌라고 생각하면 편하다<br><br>
 					CPU는 'Central Processing Unit'의 약자로 중앙처리 장치이다'<br><br>
@@ -49,7 +49,7 @@ b {
 			<h1><b>[코어와 쓰레드]</b><br><h1>
 			<table width=100%>
 				<tr>
-					<td width=300px><img src="resources/images/core_thread.PNG" height="300px" weight="300px"></td>
+					<td width=250px><img src="resources/images/core_thread.PNG" height="300px" weight="300px"></td>
 					<th><br> CPU의 성능을 볼때 제일먼저 보는 것은 코어 갯수와 쓰레드 갯수이다. <br><br>
 					코어를 사람의 뇌라고 보면 코어가 많을 수록 동시에 많은 생각을 할 수 있다는 뜻이고<br><br>
 					쓰레드를 사람의 손이라고 보면 뇌가 생각하는 것을 손이 움직여서 처리하게 된다.<br><br>

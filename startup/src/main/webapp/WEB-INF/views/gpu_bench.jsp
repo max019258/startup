@@ -68,7 +68,7 @@
 					series: {5: {type: 'line'}}
 				};
 			
-			var chart = new google.visualization.ComboChart(document.getElementById('chart_div'));
+			var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
 			chart.draw(data, options);
 		}
 	</script>

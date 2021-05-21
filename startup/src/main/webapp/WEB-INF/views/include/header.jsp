@@ -62,7 +62,7 @@
 									title="Service List">부품설명</a>
 									<ul>
 										<li><a href="cpu_ex">CPU</a></li>
-										<li><a href="gpu_ex">GPU</a></li>
+										<li><a href="gpu_ex">VGA</a></li>
 										<li><a href="sub_ex">SSD/HDD</a></li>
 										<li><a href="ram_ex">RAM</a></li>
 										<li><a href="mainboard_ex">메인보드</a></li>

@@ -434,8 +434,9 @@ url(../images/cta-section-img.jpg) no-repeat center; background-size: cover; }
 7. Content 
 -------------------------------------*/
 
-.content { padding-top: 100px; padding-bottom: 100px; margin-right:330px; margin-left:330px; }
-.content2  { margin-left:15%; }
+.content { padding-top: 100px; padding-bottom: 100px; margin-right:250px; margin-left:250px;font-size: 13px; }
+.content2  { margin-left:15%; font-size: 16px; 
+}
 
 /*-----------------------------------
 8. Footer 
@@ -855,3 +856,17 @@ opacity: .5; }
     pointer-events: none;
     color: #aaa;
 }
+
+<STYLE TYPE="text/css">
+ table {font-size: 13pt;}
+th,td{vertical-align:top;}
+body {
+  font-size: 13pt; /* font-size 1em = 10px 브라우저의 기본 설정 */
+}
+span {
+  font-size: 13pt; /* 1.6em = 16px */
+}
+b {
+  font-size: 13pt; 
+} 
+</STYLE>
