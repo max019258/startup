@@ -25,35 +25,37 @@ th,td{vertical-align:top;}
 
 	<!-- /.page header -->
 	<div class="content">
-		<center>
-		<h1><b><br><br>그 외의 부품들</b><br><br><h1>
+	<div class="content2">
+		
+		<h1><b>그 외의 부품들</b><br><br></h1>
 			<table width=100%>
 				<tr>
 					<th><img src="resources/images/odd.PNG" height="300px" weight="300px"></th>
 					<th><br>ODD(CDROM): CD ROM이라고도 하는데 단순히 CD를 읽어주는 장비라고 생각하면 된다.<br><br>
 하지만 요즘은 CD를 잘 사용하지 않아서 잘 사용하지는 않는다. 
 </th>
-				</tr>
-				<tr>
-				<td><br><br><br><br><br><br>
-				</td>
-				<td>
-				</td>
-				</tr>
-				
+
+
+			
+			
+			
+	</table>
+	<br>
+	<hr width=100%>
+				<table width=100%>
 				<tr>
 					<th><img src="resources/images/case.PNG" height="300px" weight="300px"></th>
 					<th><br>케이스: 컴퓨터의 옷정도로 생각하면 된다 <br><br>
 사람의 옷과 같이 신체보호, 열관리 등의 역할을 하긴 하지만 큰 의미는 없다 <br><br>디자인이 맘에 들지 않는게 아닌이상 과소비는 하지 말자
 </th>
 				</tr>
-				</tr>
-				<tr>
-				<td><br><br><br><br><br><br>
-				</td>
-				<td>
-				</td>
-				</tr>
+				</table>
+				
+				<br>
+				<hr width=100%>
+				
+				
+				<table width=100%>
 				<tr>
 					<th><img src="resources/images/cooler.PNG" height="300px" weight="300px"></th>
 					<th><br>쿨러 : 컴퓨터의 발열을 낮추는 역할을 한다 <br><br>
@@ -63,9 +65,9 @@ th,td{vertical-align:top;}
 				<!-- -------------- -->
 			</table>
 
-		</center>
+		
 
-
+</div>
 	</div> 
 	<!-- 아래 요소들 전부 footer.jsp에 있음 -->
 	<%@ include file="include/footer.jsp" %>

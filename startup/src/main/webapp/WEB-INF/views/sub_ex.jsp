@@ -19,25 +19,30 @@ th,td{vertical-align:top;}
 	<%@ include file="include/header.jsp"%>
 
 	<!-- /.page header -->
-	<!-- <div class="content"> -->
+<div class="content">
 		<center>
-		<h1><b><br><br>보조기억 장치(HDD/SSD)</b><br><h1>
+		<h1><b>보조기억 장치(HDD/SSD)</b><br><h1>
 			<table>
 			
 
 				<tr>
 					<th><img src="resources/images/submem.PNG"></th>
-					<th><br>보조기억장치(SSD,HDD) : 컴퓨터는 전원을 껐다가 키면 전부 까먹는 멍청이라서 따로 필요한 것들을 저장 해주는 메모장을 가지고 있는데 그것이 보조 기억장치이다.<br><br>
+					<th><br>보조기억장치(SSD,HDD) : <br><br>
+					컴퓨터는 전원을 껐다가 키면 가지고 있던 내용을 전부 까먹어버린다.<br><br>
+					따라서 따로 필요한 것들을 저장 해주는 메모장을 가지고 있는데 그것이 보조 기억장치이다.<br><br>
 					 만약 자신이 많은 양의 파일들을 저장 혹은 다운 해놓을 것이라면 큰 용량을 사용하는 것이 좋을 것이다.<br><br>
-					 보조 기억장치 종류에는 HDD와 SSD가 있다.</th>
+					 보조 기억장치 종류에는 HDD와 SSD가 있는데<br><br>
+					 SSD와 HDD의 차이는 아래 표를 보면 확인 할수 있다.<br><br>
+					 <img src="resources/images/hddssd.PNG"><br><br>
+					 </th>
 				</tr>
 				<!-- -------------- -->
 			</table>
-
+			
 		</center>
 
 
-	<!-- </div> -->
+	</div>
 	<!-- 아래 요소들 전부 footer.jsp에 있음 -->
 	<%@ include file="include/footer.jsp" %>
 </body>
