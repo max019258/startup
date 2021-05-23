@@ -1,6 +1,11 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page session="false" contentType="text/html; charset=UTF-8"%> <!-- 한글 패치 -->
-
+<%@page import="java.sql.SQLException"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.PreparedStatement"%>
+<%@page import="java.sql.Connection"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page session="false" contentType="text/html; charset=UTF-8"%>
+<!-- 한글 패치 -->
 <%@ page import="java.util.*" %>
 
 <!DOCTYPE html>
@@ -9,94 +14,106 @@
 <head>
   
 </head>
-
+<style>
+			input[id="cb1"] + label {
+				display: inline-block;
+				width: 20px;
+				height: 20px;
+				border: 2px solid #bcbcbc;
+				cursor: pointer;
+			}
+			input[id="cb1"]:checked + label {
+				background-color: #333333;
+			}
+			input[id="cb1"] {
+				display: none;
+			}
+		</style>
 <body>
 <!-- head를 포함한 위의 요소들 전부 header.jsp에 있음 -->
 <%@ include file="include/header.jsp" %>
+<!-- 프로그램 이름과 종류 따오기 시작-->
+<% 
+	 Class.forName("com.mysql.jdbc.Driver");
+     Connection conn = null;
+     PreparedStatement pstmt = null;
+     ResultSet rs = null; 
+     String[][] program_name =new String[100][2];
 
+     int i =0;
+     try{
+         String jdbcDriver = "jdbc:mysql://localhost:3306/startup?serverTimezone=UTC";
+         String dbUser = "root";
+         String dbPwd = "1234";            
+         conn = DriverManager.getConnection(jdbcDriver, dbUser, dbPwd);             
+         pstmt = conn.prepareStatement("select Program_name,Kind from startup.recommend");     
+         rs = pstmt.executeQuery();
+          while(rs.next()){
+        	  if ("game".equals(rs.getString("Kind")))
+        	  {
+        		  program_name[i][0] =rs.getString("Program_name");
+        		  program_name[i][1] ="game";
+        	  }
+        	  else if ("work".equals(rs.getString("Kind")))
+        	  {
+        		  program_name[i][0] =rs.getString("Program_name");
+        		  program_name[i][1] ="work";
+        	  }
+        	  i++;
+            }
+        }catch(SQLException se){
+            se.printStackTrace();
+        }finally{
+            if(rs != null) rs.close();
+            if(pstmt != null) pstmt.close();
+            if(conn != null) conn.close();
+        }
+    %> <!-- 프로그램 이름과 종류 따오기 끝-->
+
+   
+   
+   
+   
+   
     <div class="content">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
-                    <div class="bg-light pinside30">
-                        <div class="row">
-                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                <h1>Get in touch with us</h1>
-                                <p>Please complete the form below. We'll do everything we can to respond to you as quickly as possible.</p>
-                                <form>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group has-feedback">
-                                                <label class="control-label" for="name">name</label>
-                                                <div class="input-group"> <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                                    <input type="text" class="form-control" id="name">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group has-feedback">
-                                                <label class="control-label" for="email">email</label>
-                                                <div class="input-group"> <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-                                                    <input type="text" class="form-control" id="email">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group has-feedback">
-                                                <label class="control-label" for="subject">Subject</label>
-                                                <div class="input-group"> <span class="input-group-addon"><i class="fa fa-globe"></i></span>
-                                                    <input type="text" class="form-control" id="subject">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group has-feedback">
-                                                <label class="control-label" for="phone">Phone</label>
-                                                <div class="input-group"> <span class="input-group-addon"><i class="fa fa-phone"></i></span>
-                                                    <input type="text" class="form-control" id="phone">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                            <div class="form-group">
-                                                <label class="control-label" for="textarea">Message</label>
-                                                <textarea class="form-control" id="textarea" name="textarea" rows="6" placeholder=""></textarea>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <button id="singlebutton" name="singlebutton" class="btn btn-default">send message</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
-                    <div class="contact-pic mb30"> <img src="resources/images/contact-pic.jpg" class="img-responsive" alt=""> </div>
-                    <div class="contact-info">
-                        <h2>archone interior- exterior design</h2>
-                        <address>
-                            1309 Roosevelt Wilson Lane
-                            <br> Colton, CA 92324
-                        </address>
-                        <address>
-                            <span class="text-caps">studio:</span> <strong>180-751-3956</strong>
-                            <br>
-                            <span class="text-caps">Mobile:</span> <strong>180-752-3957</strong>
-                        </address>
-                        <address>
-                            <span class="text-caps">e-mail:</span> <strong>info@yourwebsitedomain.com</strong>
-                        </address>
-                        <div class="social-circle"> <span class="text-caps">Be social: </span> <a href="#"><i class="fa fa-facebook-square"></i></a> <a href="#"><i class="fa fa-twitter-square"></i></a> <a href="#"><i class="fa fa-google-plus-square"></i></a> <a href="#"><i class="fa fa-youtube-square"></i></a> <a href="#"><i class="fa fa-pinterest-square"></i></a> </div>
-                    </div>
-                    <!-- /.widget search -->
-                </div>
-            </div>
-        </div>
-    </div>
+ <form action='contact2'>
+  <b>작업</b><br>
+  <%
+  int j=0;
+  for(j=0;j<i;j++)
+  {
+	  if("work".equals(program_name[j][1]))
+	  {  %>
+	   <input type='checkbox' name='program' value="<%=program_name[j][0]%>"/><%= program_name[j][0]%>
+	<%	  
+	  } 
+  }  
+  %>
+  <br>
+  <b>게임</b><br>
+  <%
+  for(j=0;j<i;j++)
+  {
+	  if("game".equals(program_name[j][1]))
+	  {  %>
+	   <input type='checkbox' name='program' value="<%=program_name[j][0] %> "/><%= program_name[j][0]%>
+	<%	  
+	  } 
+  }
+  
+  %>
+   <br><input type='submit' value="확인"> 
+ 
+  
+ 
+</form>
+      
+
+
+
+
+
+</div>
     
 <!-- 아래 요소들 전부 footer.jsp에 있음 -->
 	<%@ include file="include/footer.jsp" %>

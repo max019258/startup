@@ -59,6 +59,22 @@ public class HomeController {
 		return "contact";
 	}
 	
+
+	@RequestMapping(value = "contact2")
+	public String contact2() throws Exception{		 
+		Document doc = Jsoup.connect("http://search.danawa.com/dsearch.php?k1=rtx3060").get();
+		Elements hotdeal = doc.select("#productItem13463144 > div > div.prod_info > p");
+		System.out.println(hotdeal.toString());
+		Elements test = hotdeal.select("li");
+		System.out.println(test.toString());
+		
+		for(Element e : test) {
+			System.out.println(e.toString());
+		}
+		
+		return "contact2";
+	}
+	
 	@RequestMapping("cpu_bench")
 	public String cpu_bench() {
 		return "cpu_bench";
