@@ -25,6 +25,10 @@
      ResultSet rs = null; 
      String[] CPU_name =new String[100];
      int[] CPU_bench =new int[100];
+     int[] CPU_Price =new int[100];
+     String CPU = "";
+     
+     
      int i =0;
      try{
          String jdbcDriver = "jdbc:mysql://localhost:3306/startup?serverTimezone=UTC";
@@ -36,6 +40,8 @@
           while(rs.next()){
         	  CPU_name[i] =rs.getString("CPU_name");
         	  CPU_bench[i] =rs.getInt("benchi_value");
+        	  CPU_Price[i] =rs.getInt("Price");
+        	  CPU += "['"+CPU_name[i]+"',"+CPU_bench[i]+","+CPU_Price[i]+"],";
         	  i++;
             }
         }catch(SQLException se){
@@ -53,23 +59,33 @@
 	
 		function drawVisualization() { 
 			var data = google.visualization.arrayToDataTable([
-					['CPU 제품명', 'CPU_bench'],
-					['<%= CPU_name[0]%>',  <%= CPU_bench[0]%>],
-					['<%= CPU_name[1]%>',  <%= CPU_bench[1]%>],
-					['<%= CPU_name[2]%>',  <%= CPU_bench[2]%>],
-					['<%= CPU_name[3]%>',  <%= CPU_bench[3]%>],
-					['<%= CPU_name[4]%>',  <%= CPU_bench[4]%>]
+					['CPU 제품명', 'CPU_bench','CPU_Price'],<%=CPU%>
 				]);
+			var view = new google.visualization.DataView(data);
+		      view.setColumns([0, 1,
+		    	  				{ calc: "stringify",
+		                         sourceColumn: 1,
+		                         type: "string",
+		                         role: "annotation" }
+		      
+		                       ,2,{ calc: "stringify",
+			                         sourceColumn: 2,
+			                         type: "string",
+			                         role: "annotation" }]);
 			var options = {
-					title : '벤치마크 수치 상위 5위까지의 CPU',
-					vAxis: {title: 'bench_value'},
-					hAxis: {title: 'CPU 제품명'}, 
+					title : '벤치마크 수치 상위 100위까지의 CPU',
+					fontSize: 12,
+					vAxis: {title: 'CPU 제품명'},
+					hAxis: {title: 'bench_value'}, 
 					seriesType: 'bars',
-					series: {5: {type: 'line'}}
+		               bar: {groupWidth: "95%"},
+					series: {5: {type: 'line'},
+						'chartArea': {'width': '100%', 'height': '100%'},
+			               'legend': {'position': 'bottom'}}
 				};
 			
 			var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
-			chart.draw(data, options);
+			chart.draw(view, options);
 		}
 	</script>
 	
@@ -85,14 +101,20 @@
 
 	<!-- Main content -->
 	<section class="content">
+	
 		<div class="row">
+		<!-- 차트 그리는 문항 : <div id="chart_div" ></div> -->
+		<div id="chart_div" style="width:900px; height: 4000px;"></div>
+		
+		
 			<!-- left column -->
 			<div class="col-md-12">
 				<!-- general form elements -->
 
 				<div class="box">
+				
 					<div class="box-header with-border">
-					<div id="chart_div" style="width:900px; height: 500px;"></div>
+					
 					
 						<h3 class="box-title">LIST ALL PAGE</h3>
 					</div>
