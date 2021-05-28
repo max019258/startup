@@ -1,3 +1,5 @@
+<%@page import="com.inhatc.domain.DBconnect"%>
+<%@page import="com.inhatc.domain.SeleniumCrawling"%>
 <%@page import="java.sql.SQLException"%>
 <%@page import="java.sql.DriverManager"%>
 <%@page import="java.sql.ResultSet"%>
@@ -13,83 +15,189 @@
 
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-	<title>Insert title here</title>
-	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js">	</script>
-
-
-
-<% 
-	 Class.forName("com.mysql.jdbc.Driver");
-     Connection conn = null;
-     PreparedStatement pstmt = null;
-     ResultSet rs = null; 
-     String[] GPU_name =new String[100];
-     int[] GPU_bench =new int[100];
-     int[] GPU_Price =new int[100];
-     String GPU = "";
-     
-     int i =0;
-     try{
-         String jdbcDriver = "jdbc:mysql://localhost:3306/startup?serverTimezone=UTC";
-         String dbUser = "root";
-         String dbPwd = "1234";            
-         conn = DriverManager.getConnection(jdbcDriver, dbUser, dbPwd);             
-         pstmt = conn.prepareStatement("select * from startup.gpu_bench order by benchi_value desc;");     
-         rs = pstmt.executeQuery();
-          while(rs.next()){
-        	  GPU_name[i] =rs.getString("GPU_name");
-        	  GPU_bench[i] =rs.getInt("benchi_value");
-        	  GPU_Price[i] =rs.getInt("Price");
-        	  GPU += "['"+GPU_name[i]+"',"+GPU_bench[i]+","+GPU_Price[i]+"],";
-        	  i++;
-            }
-        }catch(SQLException se){
-            se.printStackTrace();
-        }finally{
-            if(rs != null) rs.close();
-            if(pstmt != null) pstmt.close();
-            if(conn != null) conn.close();
-        }
-    %>
+<title>Insert title here</title>
+<script type="text/javascript"
+	src="https://www.gstatic.com/charts/loader.js">
 	
-	<script type="text/javascript">
-		google.charts.load('current', {'packages':['corechart']});
-		google.charts.setOnLoadCallback(drawVisualization);
+</script>
+
+
+
+<%
+Class.forName("com.mysql.jdbc.Driver");
+Connection conn = null;
+
+String jdbcDriver = "jdbc:mysql://localhost:3306/startup?serverTimezone=UTC";
+String dbUser = "root";
+String dbPwd = "inhatc";
+
+PreparedStatement pstmt = null;
+PreparedStatement price_pstmt = null;
+PreparedStatement priceinput_pstmt = null;
+
+ResultSet rs = null;
+ResultSet price_rs = null;
+ResultSet priceinput_rs = null;
+
+String[] GPU_name = new String[100];
+int[] GPU_bench = new int[100];
+int[] GPU_Price = new int[100];
+String GPU = "";
+
+SeleniumCrawling seleniumCrawling = new SeleniumCrawling();
+
+int i = 0;
+int j = 0;
+
+
+
+try{	
+	conn = DriverManager.getConnection(jdbcDriver, dbUser, dbPwd);
+	price_pstmt = conn.prepareStatement("select gpu_name from startup.gpu_bench");
+	price_rs = price_pstmt.executeQuery();
 	
-		function drawVisualization() { 
-			var data = google.visualization.arrayToDataTable([
-				['GPU 제품명', 'GPU_bench','GPU_Price'],<%=GPU%>
-				]);
-			var view = new google.visualization.DataView(data);
-		      view.setColumns([0, 1,
-		    	  				{ calc: "stringify",
-		                         sourceColumn: 1,
-		                         type: "string",
-		                         role: "annotation" }
-		      
-		                       ,2,{ calc: "stringify",
-			                         sourceColumn: 2,
-			                         type: "string",
-			                         role: "annotation" }]);
-			var options = {
-					title : '벤치마크 수치 상위 5위까지의 그래픽카드',
-					fontSize: 12,
-					vAxis: {title: '그래픽카드 제품명'},
-					hAxis: {title: 'bench_value'}, 
-					seriesType: 'bars',
-		               bar: {groupWidth: "95%"},
-					series: {5: {type: 'line'},
-						'chartArea': {'width': '100%', 'height': '100%'},
-			               'legend': {'position': 'bottom'}}
-				};
+	while (price_rs.next()) {
+		GPU_name[j] = price_rs.getString("gpu_name");
+		j++;
+	}
+}catch(SQLException se){
+	se.printStackTrace();
+}finally{
+	if (rs != null)
+		rs.close();
+	if (pstmt != null)
+		pstmt.close();
+	if (conn != null)
+		conn.close();
+}
+
+
+
+try{
+	conn = DriverManager.getConnection(jdbcDriver, dbUser, dbPwd);
+	priceinput_pstmt = conn.prepareStatement("update startup.gpu_bench set price = ? where gpu_num = ?");
+	//priceinput_rs = priceinput_pstmt.executeQuery();
+	int a = 0;
+	
+	for(j = 0; j < 50; j++){
+		String temp = seleniumCrawling.price_crwaling(GPU_name[j]);
+		System.out.println(j+"번째에서 걸림--------------------------"+GPU_name[j]);
+		a++;
+		if(temp == null || temp == "" || temp == "단종" && !temp.contains("원")){
+			continue;
+		}else{
+			temp = temp.trim();
+			System.out.print("temp---------------------------"+temp);
+			temp = temp.replace("원", "").replace(",", ""); // 원 하고 , 없애고
 			
-			var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
-			chart.draw(view, options);
+			int price = Integer.parseInt(temp); // int 형 변환
+			
+			priceinput_pstmt.setInt(1, price); // price = ? 에 가격 넣고
+			priceinput_pstmt.setInt(2, a); // gpu_num = ? 에 j 넣고
+			priceinput_pstmt.executeUpdate(); // 업뎃
 		}
-	</script>
-	
-	
-	
+	}
+}catch(SQLException se){
+	se.printStackTrace();
+}finally{
+	if (rs != null)
+		rs.close();
+	if (pstmt != null)
+		pstmt.close();
+	if (conn != null)
+		conn.close();
+}
+
+
+
+
+try {
+	conn = DriverManager.getConnection(jdbcDriver, dbUser, dbPwd);
+	pstmt = conn.prepareStatement("select * from startup.gpu_bench order by benchi_value desc;");
+	rs = pstmt.executeQuery();
+
+	while (rs.next()) {
+		GPU_name[i] = rs.getString("GPU_name");
+		GPU_bench[i] = rs.getInt("benchi_value");
+		GPU_Price[i] = rs.getInt("Price");
+		GPU += "['" + GPU_name[i] + "'," + GPU_bench[i] + "," + GPU_Price[i] + "],";
+		i++;
+	}
+} catch (SQLException se) {
+	se.printStackTrace();
+} finally {
+	if (rs != null)
+		rs.close();
+	if (pstmt != null)
+		pstmt.close();
+	if (conn != null)
+		conn.close();
+}
+%>
+
+
+
+
+<script type="text/javascript">
+	google.charts.load('current', {
+		'packages' : [ 'corechart' ]
+	});
+	google.charts.setOnLoadCallback(drawVisualization);
+
+	function drawVisualization() {
+		var data = google.visualization.arrayToDataTable([
+				[ 'GPU 제품명', 'GPU_bench', 'GPU_Price' ],
+<%= GPU%>
+	]);
+		var view = new google.visualization.DataView(data);
+		view.setColumns([ 0, 1, {
+			calc : "stringify",
+			sourceColumn : 1,
+			type : "string",
+			role : "annotation"
+		}
+
+		, 2, {
+			calc : "stringify",
+			sourceColumn : 2,
+			type : "string",
+			role : "annotation"
+		} ]);
+		var options = {
+			title : '벤치마크 수치 상위 5위까지의 그래픽카드',
+			fontSize : 12,
+			vAxis : {
+				title : '그래픽카드 제품명'
+			},
+			hAxis : {
+				title : 'bench_value'
+			},
+			seriesType : 'bars',
+			bar : {
+				groupWidth : "95%"
+			},
+			series : {
+				5 : {
+					type : 'line'
+				},
+				'chartArea' : {
+					'width' : '100%',
+					'height' : '100%'
+				},
+				'legend' : {
+					'position' : 'bottom'
+				}
+			}
+		};
+
+		var chart = new google.visualization.BarChart(document
+				.getElementById('chart_div'));
+		chart.draw(view, options);
+	}
+</script>
+
+
+
 
 
 </head>
@@ -100,17 +208,17 @@
 
 	<!-- Main content -->
 	<section class="content">
-	
+
 		<div class="row">
-		<!-- 차트 그리는 문항 : <div id="chart_div" ></div> -->
-		<div id="chart_div" style="width:900px; height: 2000px;" ></div>
+			<!-- 차트 그리는 문항 : <div id="chart_div" ></div> -->
+			<div id="chart_div" style="width: 900px; height: 2000px;"></div>
 			<!-- left column -->
 			<div class="col-md-12">
 				<!-- general form elements -->
 
 				<div class="box">
 					<div class="box-header with-border">
-					
+
 						<h3 class="box-title">LIST ALL PAGE</h3>
 					</div>
 					<div class="box-body">

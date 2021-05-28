@@ -70,11 +70,6 @@
         }
     %> <!-- 프로그램 이름과 종류 따오기 끝-->
 
-   
-   
-   
-   
-   
     <div class="content">
  <form action='contact2'>
   <b>작업</b><br>

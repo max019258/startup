@@ -13,7 +13,7 @@ public class SeleniumCrawling {
     
     //Properties
     public static final String WEB_DRIVER_ID = "webdriver.chrome.driver";
-    public static final String WEB_DRIVER_PATH = "D:\\SpringPrj\\startup\\chromedriver.exe";
+    public static final String WEB_DRIVER_PATH = "D:\\Spring_Prj\\startup\\chromedriver.exe";
     
     private String base_url;
 
@@ -23,21 +23,27 @@ public class SeleniumCrawling {
         String price = "null";
         //Driver SetUp
         driver = new ChromeDriver();
-        base_url = "http://search.danawa.com/dsearch.php?k1="+ search +"";
+        base_url = "https://www.coupang.com/np/search?component=&q=" + search +"";
+       // base_url = "http://search.danawa.com/dsearch.php?k1="+ search +"";
         System.out.println(base_url);
         try {
 			// get page (= 釉뚮씪�슦���뿉�꽌 url�쓣 二쇱냼李쎌뿉 �꽔�� �썑 request �븳 寃껉낵 媛숇떎)
 			driver.get(base_url);
 			element = driver.findElement(By.xpath(
-					"/html/body/div[2]/div[3]/div[3]/div[2]/div[9]/div[2]/div[2]/div[4]/ul/li[1]/div/div[3]/ul/li/p[2]/a"));
-			price = element.getText();
+					// /html/body/div[2]/div[3]/div[3]/div[2]/div[8]/div[2]/div[2]/div[3]/ul/li[3]/div/div[3]/ul/li/p[2]/a
+					"/html/body/div[2]/section/form/div[2]/div[2]/ul/li[2]/a/dl/dd/div/div[3]/div/div[1]/em"));
+			if(element.getText() == "" || element.getText() == "단종" || element.getText() == null) {
+				price = null;
+			}else {
+				price = element.getText();
+			}
 			// System.out.println(driver.getPageSource());
 		} catch (Exception e) {
-			e.printStackTrace();
+			price = null;
 		} finally {
 			driver.close();
         }
-        System.out.println("실행"+price);
+        System.out.println("실행----"+price);
 		return price;
 	}
 }

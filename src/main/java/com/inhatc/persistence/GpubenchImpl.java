@@ -6,7 +6,6 @@ import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
-import com.inhatc.domain.CpubenchVO;
 import com.inhatc.domain.GpubenchVO;
 
 
@@ -48,5 +47,11 @@ public class GpubenchImpl implements GpubenchDAO {
     return session.selectList(namespace + ".listAll");
   }
 
+	@Override
+	public GpubenchVO selectGpuName(Integer gpu_num) throws Exception {
+		// TODO Auto-generated method stub
+		System.out.println("DAOImpl부분 실행" + gpu_num);
+		return session.selectOne(namespace + ".selectGpuName", gpu_num);
+	}
 
 }

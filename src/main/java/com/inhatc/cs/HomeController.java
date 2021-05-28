@@ -2,6 +2,8 @@ package com.inhatc.cs;
 
 import java.util.Locale;
 
+import javax.inject.Inject;
+
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -14,7 +16,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.inhatc.domain.GpubenchVO;
 import com.inhatc.domain.SeleniumCrawling;
+import com.inhatc.service.GpubenchService;
 
 /**
  * Handles requests for the application home page.
@@ -23,6 +27,8 @@ import com.inhatc.domain.SeleniumCrawling;
 public class HomeController {
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
+	@Inject
+	private GpubenchService service;
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
@@ -45,33 +51,12 @@ public class HomeController {
 	}
 
 	@RequestMapping(value = "contact")
-	public String contact() throws Exception{		 
-		Document doc = Jsoup.connect("http://search.danawa.com/dsearch.php?k1=rtx3060").get();
-		Elements hotdeal = doc.select("#productItem13463144 > div > div.prod_info > p");
-		System.out.println(hotdeal.toString());
-		Elements test = hotdeal.select("li");
-		System.out.println(test.toString());
-		
-		for(Element e : test) {
-			System.out.println(e.toString());
-		}
-		
+	public String contact() throws Exception{		
 		return "contact";
 	}
 	
-
 	@RequestMapping(value = "contact2")
-	public String contact2() throws Exception{		 
-		Document doc = Jsoup.connect("http://search.danawa.com/dsearch.php?k1=rtx3060").get();
-		Elements hotdeal = doc.select("#productItem13463144 > div > div.prod_info > p");
-		System.out.println(hotdeal.toString());
-		Elements test = hotdeal.select("li");
-		System.out.println(test.toString());
-		
-		for(Element e : test) {
-			System.out.println(e.toString());
-		}
-		
+	public String contact2() throws Exception{
 		return "contact2";
 	}
 	
@@ -129,6 +114,10 @@ public class HomeController {
 		System.out.println("searchinfo text : "+ searchinfo);
 		System.out.println("test : " + seleniumCrawling.price_crwaling("rtx3060"));
 		model.addAttribute("searchinfo", searchinfo);
+		
+		GpubenchVO gpu_name = service.selectGpuName(2);
+		System.out.println("aaaaaaa@@@@@@@@@@@@@@@@@@@@@@@@@@@@"+gpu_name);
+		
 		return "product_page";
 	}
 }

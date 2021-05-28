@@ -16,7 +16,7 @@
 			value="jdbc:mysql://127.0.0.1:3306/startup?serverTimezone=UTC&amp;characterEncoding=UTF-8"
 			name="url" />
 		<property name="username" value="root"></property>
-		<property name="password" value="1234"></property>
+		<property name="password" value="inhatc"></property>
 	</bean>
 	<bean id="sqlSessionFactory"
 		class="org.mybatis.spring.SqlSessionFactoryBean">
