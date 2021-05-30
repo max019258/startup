@@ -14,7 +14,7 @@
 <html lang="kr">
 
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <script type="text/javascript"
 	src="https://www.gstatic.com/charts/loader.js">
@@ -29,7 +29,7 @@ Connection conn = null;
 
 String jdbcDriver = "jdbc:mysql://localhost:3306/startup?serverTimezone=UTC";
 String dbUser = "root";
-String dbPwd = "inhatc";
+String dbPwd = "1234";
 
 PreparedStatement pstmt = null;
 PreparedStatement price_pstmt = null;
@@ -49,8 +49,6 @@ SeleniumCrawling seleniumCrawling = new SeleniumCrawling();
 int i = 0;
 int j = 0;
 
-
-
 try{	
 	conn = DriverManager.getConnection(jdbcDriver, dbUser, dbPwd);
 	price_pstmt = conn.prepareStatement("select gpu_name from startup.gpu_bench");
@@ -63,10 +61,10 @@ try{
 }catch(SQLException se){
 	se.printStackTrace();
 }finally{
-	if (rs != null)
-		rs.close();
-	if (pstmt != null)
-		pstmt.close();
+	if (price_rs != null)
+		price_rs.close();
+	if (price_pstmt != null)
+		price_pstmt.close();
 	if (conn != null)
 		conn.close();
 }
@@ -102,8 +100,8 @@ try{
 }finally{
 	if (rs != null)
 		rs.close();
-	if (pstmt != null)
-		pstmt.close();
+	if (priceinput_pstmt != null)
+		priceinput_pstmt.close();
 	if (conn != null)
 		conn.close();
 }
