@@ -69,7 +69,7 @@
 										<li><a href="power_ex">파워</a></li>
 										<li><a href="beside_ex">그외</a></li>
 									</ul></li>
-								<li class="has-sub"><a href="portfolio" title="Portfolio">벤치마크
+								<li class="has-sub"><a href="cpu_bench" title="Portfolio">벤치마크
 										정보</a>
 									<ul>
 										<li><a href="cpu_bench" title="cpu_bench">CPU</a></li>

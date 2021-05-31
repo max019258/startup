@@ -161,8 +161,8 @@ for (i=0;i<cnt;i++)
 
   
  %>
-<%=cpu_name %>&nbsp&nbsp&nbsp&nbsp
-<%=cpu_value %> <br>
+추천 CPU:<%=cpu_name %>&nbsp&nbsp&nbsp&nbsp
+CPU value:<%=cpu_value %> <br>
 
 
 
@@ -209,8 +209,8 @@ for (i=0;i<cnt;i++)
 
   
  %>
-<%=gpu_name %>&nbsp&nbsp&nbsp&nbsp
-<%=gpu_value %> <br>
+추천 그래픽카드:<%=gpu_name %>&nbsp&nbsp&nbsp&nbsp
+GPU value:<%=gpu_value %> <br>
 
 
 <!-- ------------------------------------------------------------------- -->
@@ -254,7 +254,7 @@ for (i=0;i<cnt;i++)
 
   
  %>
-<%=max_ram %>&nbsp&nbsp&nbsp&nbsp
+필요한 램갯수:<%=max_ram %>&nbsp&nbsp&nbsp&nbsp
  <br>
 
 
@@ -299,7 +299,7 @@ for (i=0;i<cnt;i++)
  */
   
  %>
-<%=sum_storage %>&nbsp&nbsp&nbsp&nbsp
+필요한 저장공간 :<%=sum_storage %>GB &nbsp&nbsp&nbsp&nbsp
  <br>
 
 

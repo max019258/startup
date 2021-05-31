@@ -69,7 +69,7 @@ try{
 		conn.close();
 }
 
-
+/*
 
 try{
 	conn = DriverManager.getConnection(jdbcDriver, dbUser, dbPwd);
@@ -105,7 +105,7 @@ try{
 	if (conn != null)
 		conn.close();
 }
-
+*/
 
 
 
