@@ -41,6 +41,23 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js "></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js "></script>
 <![endif]-->
+
+<script>
+        function newPage(){
+            window.open("http://search.danawa.com/dsearch.php?k1="+document.getElementById('searchinfo').value+"","danawa","left=100,top=100,width=1000,height=900, location, resizable") 
+        }
+</script>
+
+<script type="text/javascript">
+function enterkey() {
+    if (window.event.keyCode == 13) {
+
+         // 엔터키가 눌렸을 때 실행할 내용
+         newPage();
+    }
+}
+</script>
+
 </head>
 
 <body>
@@ -141,12 +158,12 @@
 				<!-- 인디케이터 끝 -->
 			</div>
 			<!-- search box -->
-			<form action="product_page" method="get">
+			<!-- <form action="/" method="get"> -->
 			<div class="form-group has-search" style="width: 40%; margin-left: auto; margin-right: auto;">
 				<span class="fa fa-search form-control-feedback"></span>
-				<input type="text" name = "searchinfo" class="form-control" placeholder="Search . . ." style="height: 40px; font-size: 20px;">
+				<input type="text" id = "searchinfo" name = "searchinfo" class="form-control" placeholder="Search . . ." style="height: 40px; font-size: 20px;" onkeypress=enterkey()>
 			</div>
-			</form>
+			<!-- </form> -->
 			<!-- 슬라이드쇼 배너 끝 -->
 		</div>
 	</div>
