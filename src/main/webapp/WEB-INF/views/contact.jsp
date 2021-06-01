@@ -28,9 +28,8 @@
 			input[id="cb1"] {
 				display: none;
 			}
-	</style>
+		</style>
 <body>
-
 <!-- head를 포함한 위의 요소들 전부 header.jsp에 있음 -->
 <%@ include file="include/header.jsp" %>
 <!-- 프로그램 이름과 종류 따오기 시작-->
@@ -40,7 +39,6 @@
      PreparedStatement pstmt = null;
      ResultSet rs = null; 
      String[][] program_name =new String[100][2];
-     
 
      int i =0;
      try{
@@ -73,49 +71,33 @@
     %> <!-- 프로그램 이름과 종류 따오기 끝-->
 
     <div class="content">
-     <center><h1><b> 프로그램별 추천 견적 </b></h1></center><br>
-   
-   
-   <div class="content0">
-   
  <form action='contact2'>
   <b>작업</b><br>
   <%
-  int j=0;  
+  int j=0;
   for(j=0;j<i;j++)
   {
 	  if("work".equals(program_name[j][1]))
 	  {  %>
-	   <div class="content4"><input type='checkbox' name='program' value="<%=program_name[j][0]%>"/>&nbsp;<%= program_name[j][0]%></div>
+	   <input type='checkbox' name='program' value="<%=program_name[j][0]%>"/><%= program_name[j][0]%>
 	<%	  
-	
-		 
-	  }
+	  } 
   }  
   %>
-   <div class="content3">
- <hr width=100%>
-  </div>
-  <div class="content3">
-  
-   <b>게임</b>
-   </div>
+  <br>
+  <b>게임</b><br>
   <%
- 
   for(j=0;j<i;j++)
   {
 	  if("game".equals(program_name[j][1]))
 	  {  %>
-	   <div class="content4"><input type='checkbox' name='program' value="<%=program_name[j][0] %>"/>&nbsp;<%= program_name[j][0]%></div>
-	<%	 
-	     
+	   <input type='checkbox' name='program' value="<%=program_name[j][0] %> "/><%= program_name[j][0]%>
+	<%	  
 	  } 
-	
-  }  
-  %>
+  }
   
-    <div class="content3"><input class="btn-default" type ='submit' value="submit"> </div><br><br><br><br><br><br>
-    
+  %>
+   <br><input type='submit' value="확인"> 
  
   
  
@@ -123,7 +105,7 @@
       
 
 
-</div>
+
 
 
 </div>
