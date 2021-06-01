@@ -138,57 +138,44 @@ try {
 
 <script type="text/javascript">
 	google.charts.load('current', {
-		'packages' : [ 'corechart' ]
+		'packages' : [ 'bar' ]
 	});
 	google.charts.setOnLoadCallback(drawVisualization);
 
 	function drawVisualization() {
 		var data = google.visualization.arrayToDataTable([
-				[ 'GPU 제품명', 'GPU_bench', 'GPU_Price' ],
-<%= GPU%>
+				[ 'GPU 제품명', '벤치마크값', '가격' ],<%=GPU%>
 	]);
 		var view = new google.visualization.DataView(data);
-		view.setColumns([ 0, 1, {
-			calc : "stringify",
-			sourceColumn : 1,
-			type : "string",
-			role : "annotation"
-		}
+		
 
-		, 2, {
-			calc : "stringify",
-			sourceColumn : 2,
-			type : "string",
-			role : "annotation"
-		} ]);
+		
 		var options = {
-			title : '벤치마크 수치 상위 5위까지의 그래픽카드',
+			title : '벤치마크 수치 상위 100위까지의 그래픽카드',
 			fontSize : 12,
-			vAxis : {
-				title : '그래픽카드 제품명'
-			},
-			hAxis : {
-				title : 'bench_value'
-			},
+			bars: 'horizontal',
+			legend:{position: 'none'},
+			/**/
 			seriesType : 'bars',
-			bar : {
-				groupWidth : "95%"
-			},
-			series : {
-				5 : {
-					type : 'line'
-				},
-				'chartArea' : {
-					'width' : '100%',
-					'height' : '100%'
-				},
-				'legend' : {
-					'position' : 'bottom'
+			/**/
+			series: {
+	            0: {axis:'gpubench'}, // Bind series 0 to an axis named 'distance'.
+	            1: {axis:'price'}, // Bind series 1 to an axis named 'brightness'.
+	          },
+			/**/
+			axes: {
+				x:{
+					gpubench: {side:'top',label: 'benchvalue'},
+					price: {label: 'price'}
 				}
-			}
+			},	
+			/**/
+			bar : {	groupWidth : "90%"}
+			/**/
+			
 		};
 
-		var chart = new google.visualization.BarChart(document
+		var chart = new google.charts.Bar(document
 				.getElementById('chart_div'));
 		chart.draw(view, options);
 	}
@@ -208,8 +195,7 @@ try {
 	<section class="content">
 
 		<div class="row">
-			<!-- 차트 그리는 문항 : <div id="chart_div" ></div> -->
-			<div id="chart_div" style="width: 900px; height: 2000px;"></div>
+
 			<!-- left column -->
 			<div class="col-md-12">
 				<!-- general form elements -->
@@ -218,34 +204,12 @@ try {
 					<div class="box-header with-border">
 
 						<h3 class="box-title">LIST ALL PAGE</h3>
+						<!-- 차트 그리는 문항 : <div id="chart_div" ></div> -->
+						<div id="chart_div" style="width: 900px; height: 2000px;"></div>
 					</div>
-					<div class="box-body">
-
-						<table class="table table-bordered">
-							<tr>
-								<th style="width: 10px">GPU_num</th>
-								<th>GPU_name</th>
-								<th>benchi_value</th>
-								<th>price</th>
-							</tr>
-
-
-							<c:forEach items="${list}" var="GpubenchVO">
-
-								<tr>
-									<td>${GpubenchVO.GPU_num}</td>
-									<td>${GpubenchVO.GPU_name}</td>
-									<td>${GpubenchVO.benchi_value}</td>
-									<td>${GpubenchVO.price}</td>
-								</tr>
-
-							</c:forEach>
-
-						</table>
-
-					</div>
+					<div class="box-body"></div>
 					<!-- /.box-body -->
-					<div class="box-footer">Footer</div>
+
 					<!-- /.box-footer-->
 				</div>
 			</div>

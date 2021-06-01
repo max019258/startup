@@ -68,7 +68,7 @@ try{
 	if (conn != null)
 		conn.close();
 }
-
+/*
 try{
 	conn = DriverManager.getConnection(jdbcDriver, dbUser, dbPwd);
 	priceinput_pstmt = conn.prepareStatement("update startup.cpu_bench set price = ? where cpu_num = ?");
@@ -104,7 +104,7 @@ try{
 		conn.close();
 }
 
-
+*/
 
 
 
@@ -133,61 +133,48 @@ try {
 %>
 
 <script type="text/javascript">
-	google.charts.load('current', {
-		'packages' : [ 'corechart' ]
-	});
-	google.charts.setOnLoadCallback(drawVisualization);
+google.charts.load('current', {
+	'packages' : [ 'bar' ]
+});
+google.charts.setOnLoadCallback(drawVisualization);
 
-	function drawVisualization() {
-		var data = google.visualization.arrayToDataTable([
-				[ 'CPU 제품명', 'CPU_bench', 'CPU_Price' ],
-<%=CPU%>
-	]);
-		var view = new google.visualization.DataView(data);
-		view.setColumns([ 0, 1, {
-			calc : "stringify",
-			sourceColumn : 1,
-			type : "string",
-			role : "annotation"
-		}
+function drawVisualization() {
+	var data = google.visualization.arrayToDataTable([
+			[ 'CPU 제품명', '벤치마크값', '가격' ],<%=CPU%>
+]);
+	var view = new google.visualization.DataView(data);
+	
 
-		, 2, {
-			calc : "stringify",
-			sourceColumn : 2,
-			type : "string",
-			role : "annotation"
-		} ]);
-		var options = {
-			title : '벤치마크 수치 상위 100위까지의 CPU',
-			fontSize : 12,
-			vAxis : {
-				title : 'CPU 제품명'
-			},
-			hAxis : {
-				title : 'bench_value'
-			},
-			seriesType : 'bars',
-			bar : {
-				groupWidth : "95%"
-			},
-			series : {
-				5 : {
-					type : 'line'
-				},
-				'chartArea' : {
-					'width' : '100%',
-					'height' : '100%'
-				},
-				'legend' : {
-					'position' : 'bottom'
-				}
+	
+	var options = {
+		title : '벤치마크 수치 상위 100위까지의 CPU',
+		fontSize : 12,
+		bars: 'horizontal',
+		legend:{position: 'none'},
+		/**/
+		seriesType : 'bars',
+		/**/
+		series: {
+            0: {axis:'gpubench'}, // Bind series 0 to an axis named 'distance'.
+            1: {axis:'price'}, // Bind series 1 to an axis named 'brightness'.
+          },
+		/**/
+		axes: {
+			x:{
+				gpubench: {side:'top',label: 'benchvalue'},
+				price: {label: 'price'}
 			}
-		};
+		},	
+		/**/
+		bar : {	groupWidth : "90%"}
+		/**/
+		
+	};
 
-		var chart = new google.visualization.BarChart(document
-				.getElementById('chart_div'));
-		chart.draw(view, options);
-	}
+	var chart = new google.charts.Bar(document
+			.getElementById('chart_div'));
+	chart.draw(view, options);
+}
 </script>
 
 
@@ -204,8 +191,7 @@ try {
 	<section class="content">
 
 		<div class="row">
-			<!-- 차트 그리는 문항 : <div id="chart_div" ></div> -->
-			<div id="chart_div" style="width: 900px; height: 4000px;"></div>
+
 
 
 			<!-- left column -->
@@ -218,36 +204,12 @@ try {
 
 
 						<h3 class="box-title">LIST ALL PAGE</h3>
+						<!-- 차트 그리는 문항 : <div id="chart_div" ></div> -->
+						<div id="chart_div" style="width: 900px; height: 4000px;"></div>
 					</div>
-					<div class="box-body">
-
-						<table class="table table-bordered">
-							<tr>
-								<th style="width: 10px">CPU_num</th>
-								<th>CPU_name</th>
-								<th>benchi_value</th>
-								<th>price</th>
-							</tr>
-
-
-							<c:forEach items="${list}" var="CpubenchVO">
-
-								<tr>
-									<td>${CpubenchVO.CPU_num}</td>
-									<td>${CpubenchVO.CPU_name}</td>
-									<td>${CpubenchVO.benchi_value}</td>
-									<td>${CpubenchVO.price}</td>
-								</tr>
-
-							</c:forEach>
-
-						</table>
-
-
-
-					</div>
+					<div class="box-body"></div>
 					<!-- /.box-body -->
-					<div class="box-footer">Footer</div>
+
 					<!-- /.box-footer-->
 				</div>
 			</div>
