@@ -109,7 +109,9 @@ cpu 안에 있는 그래픽과는 별개의 부품으로, 엔비디아, 라데�
 		
 		 <div class="content2"> 
 		<b>[엔비디아 그래픽카드 읽는 법]</b><br><br>
+		</div>
 <img src="resources/images/vga2.PNG"><br>
+<div class="content2"> 
 
 <div style="overflow:scroll; width: 80%; height:310px;  border:1px solid gold;  padding-left:2%;  padding-right:2%;">
 <b><br> 1)제조사</b> <br><br>

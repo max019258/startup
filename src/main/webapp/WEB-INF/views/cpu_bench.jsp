@@ -188,8 +188,8 @@ function drawVisualization() {
 
 
 	<!-- Main content -->
-	<section class="content">
-
+	<div class="contentG">
+<center>
 		<div class="row">
 
 
@@ -203,7 +203,7 @@ function drawVisualization() {
 					<div class="box-header with-border">
 
 
-						<h3 class="box-title">LIST ALL PAGE</h3>
+						<h1 class="box-title"><b>CPU 벤치마크</b></h1><br>
 						<!-- 차트 그리는 문항 : <div id="chart_div" ></div> -->
 						<div id="chart_div" style="width: 900px; height: 4000px;"></div>
 					</div>
@@ -217,9 +217,10 @@ function drawVisualization() {
 
 		</div>
 		<!-- /.row -->
-	</section>
-	<!-- /.content -->
 	</div>
+	<!-- /.content -->
+	</center>
+	
 	<!-- /.content-wrapper -->
 
 	<script>

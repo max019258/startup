@@ -79,7 +79,7 @@
    <div class="content0">
    
  <form action='contact2'>
-  <b>작업</b><br>
+  <div class="content3"><b>작업</b></div>
   <%
   int j=0;  
   for(j=0;j<i;j++)
@@ -114,14 +114,15 @@
   }  
   %>
   
-    <div class="content3"><input class="btn-default" type ='submit' value="submit"> </div><br><br><br><br><br><br>
+    <div class="content3"><input class="btn-default" type ='submit' value="submit"> &nbsp;<br> </div>
+    
     
  
   
  
 </form>
       
-
+&nbsp;
 
 </div>
 

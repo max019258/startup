@@ -41,7 +41,7 @@ if (request.getParameterValues("program")==null)
 %>
 
 	<script type="text/javascript">
-
+	alert('체크박스 선택을 해주세요');
 location.href="contact";
 
 </script>
@@ -136,7 +136,7 @@ for (i=0;i<cnt;i++)
     <div class="content0">
    
  <form action='contact2'>
-  <b>작업</b><br>
+   <div class="content3"><b>작업</b></div>
   <%
   int j=0;  
   for(j=0;j<i;j++)
@@ -210,7 +210,7 @@ for (i=0;i<cnt;i++)
  
 </form>
       
-
+ &nbsp;
 
 </div>
 

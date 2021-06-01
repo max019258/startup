@@ -190,9 +190,11 @@ try {
 <body>
 	<!-- head를 포함한 위의 요소들 전부 header.jsp에 있음 -->
 	<%@ include file="include/header.jsp"%>
+<div class="contentG">
+<center>
 
 	<!-- Main content -->
-	<section class="content">
+	
 
 		<div class="row">
 
@@ -203,7 +205,7 @@ try {
 				<div class="box">
 					<div class="box-header with-border">
 
-						<h3 class="box-title">LIST ALL PAGE</h3>
+						<h1 class="box-title"><b>그래픽카드 벤치마크</b></h1><br>
 						<!-- 차트 그리는 문항 : <div id="chart_div" ></div> -->
 						<div id="chart_div" style="width: 900px; height: 2000px;"></div>
 					</div>
@@ -217,8 +219,10 @@ try {
 
 		</div>
 		<!-- /.row -->
-	</section>
+	
 	<!-- /.content -->
+	</center>
+	
 	</div>
 	<!-- /.content-wrapper -->
 
