@@ -58,7 +58,7 @@
 							<!-- service img -->
 							<a href="cpu_bench" class="imghover"><img
 							style="border: 6px solid black;"
-								src="resources/images/bench.png" class="img-responsive"
+								src="resources/images/bench.PNG" class="img-responsive"
 								alt="Interior Design Website Templates Free Download"> </a>
 						</div>
 						<!-- service img -->
@@ -80,7 +80,7 @@
 							<!-- service img -->
 							<a href="contact" class="imghover"><img
 							style="border: 6px solid black;"
-								src="resources/images/contact-example.png"
+								src="resources/images/contact-example.PNG"
 								class="img-responsive"
 								alt="Interior Design Website Templates Free Download"> </a>
 						</div>
@@ -107,7 +107,7 @@
 					class="col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-sm-12 col-xs-12">
 					<div class="section-title mb40 text-center">
 						<!-- section title start-->
-						<h1>컴성비 사이트란?</h1>
+						<h1><b>컴성비 사이트란?</b></h1>
 					</div>
 					<!-- /.section title start-->
 				</div>

@@ -33,6 +33,60 @@
 
 <!-- head를 포함한 위의 요소들 전부 header.jsp에 있음 -->
 <%@ include file="include/header.jsp" %>
+
+<!-- 값 받아오기 -->
+<%
+if (request.getParameterValues("program")==null)
+{
+%>
+
+	<script type="text/javascript">
+
+location.href="contact";
+
+</script>
+
+
+
+
+
+
+<%
+}
+else
+{
+String[] checked = request.getParameterValues("program"); // 받아온 값 배열로 차례로 넣음
+
+%>
+	
+<% 
+int cnt;
+if(request.getParameterValues("program")==null)
+{
+	cnt=1; // 받아온값 개수
+	
+}
+else
+{
+	cnt=checked.length; // 받아온값 개수
+	
+}
+/*
+String in_value=""; // sql넣을 값
+for (i=0;i<cnt;i++)
+{
+	if (i==0){
+		in_value= in_value+"Program_name='"+checked[i]+"'";}
+	else{
+		in_value= in_value+"or Program_name='"+checked[i]+"'";
+	}
+} */
+
+%>
+
+
+
+
 <!-- 프로그램 이름과 종류 따오기 시작-->
 
 <% 
@@ -78,39 +132,92 @@
    
    
     <div class="content">
+     <div class="contenth"><h1><b> 프로그램별 추천 견적 </b></h1> </div>
+    <div class="content0">
+   
  <form action='contact2'>
   <b>작업</b><br>
   <%
-  int j=0;
+  int j=0;  
   for(j=0;j<i;j++)
   {
 	  if("work".equals(program_name[j][1]))
-	  {  %>
-	   <input type='checkbox' name='program' value="<%=program_name[j][0]%>" /><%= program_name[j][0]%>
-	<%	  
-	  } 
+	  {  
+		  int judge=0;
+		  for ( int k=0 ; k<cnt ;k++)
+		  {
+			  
+		     if(program_name[j][0].equals(checked[k]))
+		     {
+		    	 judge+=1;
+		    	 %>
+		   <%  }    		  
+	  %>	   	
+	<%	  }
+		  if(judge==0){%>
+		   <div class="content4"><input type='checkbox' name='program'  value="<%=program_name[j][0]%>"/>&nbsp;<%= program_name[j][0]%></div>
+		<%	  
+		  }
+		  else{		%>	 
+		   <div class="content4"><input type='checkbox' name='program' checked="checked" value="<%=program_name[j][0]%>"/>&nbsp;<%= program_name[j][0]%></div>
+		   
+		 <%  }
+	  }
   }  
   %>
- 
-  <br>
-  <b>게임</b><br>
+   <div class="content3">
+ <hr width=100%>
+  </div>
+  <div class="content3">
+  
+   <b>게임</b>
+   </div>
   <%
+ 
   for(j=0;j<i;j++)
   {
 	  if("game".equals(program_name[j][1]))
-	  {  %>
-	   <input type='checkbox' name='program' value="<%=program_name[j][0] %>" /><%= program_name[j][0]%>
-	<%	  
+	  {  
+		  int judge=0;
+		  for ( int k=0 ; k<cnt ;k++)
+		  {
+			  
+		     if(program_name[j][0].equals(checked[k]))
+		     {
+		    	 judge++;
+		    	 %>
+		   <%  }    		  
+	  %>	   	
+	<%	  }
+		  if(judge==0){%>
+		   <div class="content4"><input type='checkbox' name='program' value="<%=program_name[j][0]%>"/>&nbsp;<%= program_name[j][0]%></div>
+		<%	  
+		  }
+		  else{		%>	 
+		   <div class="content4"><input type='checkbox' name='program' checked="checked" value="<%=program_name[j][0]%>"/>&nbsp;<%= program_name[j][0]%></div>
+		   
+		 <%  }
+	     
 	  } 
-  }
+	
+  }  
   %>
-  <br>
-  <input type='submit'>
+   
+    <div class="content3"><input class="btn-default" type ='submit' value="submit"> </div><br><br><br><br><br><br>
+    
+ 
+  
+ 
 </form>
+      
+
+
+</div>
+
 
 <%
-String[] checked = request.getParameterValues("program"); // 받아온 값
-int cnt=checked.length; // 받아온값 개수
+checked = request.getParameterValues("program"); // 받아온 값
+cnt=checked.length; // 받아온값 개수
 String in_value=""; // sql넣을 값
 for (i=0;i<cnt;i++)
 {
@@ -161,8 +268,7 @@ for (i=0;i<cnt;i++)
 
   
  %>
-추천 CPU:<%=cpu_name %>&nbsp&nbsp&nbsp&nbsp
-CPU value:<%=cpu_value %> <br>
+
 
 
 
@@ -209,8 +315,7 @@ CPU value:<%=cpu_value %> <br>
 
   
  %>
-추천 그래픽카드:<%=gpu_name %>&nbsp&nbsp&nbsp&nbsp
-GPU value:<%=gpu_value %> <br>
+
 
 
 <!-- ------------------------------------------------------------------- -->
@@ -254,7 +359,7 @@ GPU value:<%=gpu_value %> <br>
 
   
  %>
-필요한 램갯수:<%=max_ram %>&nbsp&nbsp&nbsp&nbsp
+
  <br>
 
 
@@ -299,16 +404,47 @@ GPU value:<%=gpu_value %> <br>
  */
   
  %>
-필요한 저장공간 :<%=sum_storage %>GB &nbsp&nbsp&nbsp&nbsp
  <br>
+ <div class="content2">
+ <div class="content6">
+ <b>
+ [제품 추천 목록 입니다.]</b> <br><br>
+<b> 1. 추천 CPU : </b> <b><span style="color:red"><%=cpu_name %></span></b> 이며 &nbsp&nbsp&nbsp&nbsp 
+benchmark 점수는 <b><span style="color:red"><%=cpu_value %></span></b>이상인 제품 사용을 권합니다. <br><br>
 
+<b>2. 추천 그래픽카드(VGA) :</b> <b><span style="color:red"><%=gpu_name %></span></b> 이며 &nbsp&nbsp&nbsp&nbsp
+benchmark 점수는<b><span style="color:red"> <%=gpu_value %></span></b> 이상인 제품 사용을 권합니다.<br><br>
 
-      
+<b>3. 권장하는 램 값 :</b><b><span style="color:red"> <%=max_ram %> GB </span></b>입니다 .&nbsp&nbsp&nbsp&nbsp <br><br>
 
+<b>4. 필요한 저장공간 :</b> <b><span style="color:red"><%=sum_storage %> GB </span></b> 입니다. (필요 용량 + 256gb) &nbsp&nbsp&nbsp&nbsp
+<%} %>
+<!-- <table class="type07">
+  <thead>
+  <tr>
+    <th scope="cols">타이틀</th>
+    <th scope="cols">내용</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <th scope="row">항목명</th>
+    <td>내용이 들어갑니다.</td>
+  </tr>
+  <tr>
+    <th scope="row">항목명</th>
+    <td>내용이 들어갑니다.</td>
+  </tr>
+  <tr>
+    <th scope="row">항목명</th>
+    <td>내용이 들어갑니다.</td>
+  </tr>
+  </tbody>
+</table> -->
 
-
-
-
+</div>
+ 
+ </div>
 </div>
     
 <!-- 아래 요소들 전부 footer.jsp에 있음 -->

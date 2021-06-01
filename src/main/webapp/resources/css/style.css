@@ -1,17 +1,15 @@
+
 @charset "UTF-8";
 
 /* CSS Document */
 
 /*------------------------------------------------------------------
-
 Template Name:      Hair Salon Website Templates Free Download
 Version:            1.0.0
 Created Date:       30/03/2017 
 Author:             Jitu Chauhan 
-
 ------------------------------------------------------------------
 [CSS Table of contents]
-
 1.  Body / Typography 
 2.  Form Elements
 3.  Buttons
@@ -30,7 +28,6 @@ Author:             Jitu Chauhan
         5.2 Header Transparent
         5.3 Navigation Regular
         5.4 Page Header
-
         -----------------------
 6. Slider
         6.1 Slider
@@ -51,9 +48,7 @@ Author:             Jitu Chauhan
 11.Sidebar
     11.1 Widget
     ------------------------------------
-
 13. Media Queries
-
 ------------------------------------------------------------------*/
 
 /*-----------------------------------
@@ -435,8 +430,53 @@ url(../images/cta-section-img.jpg) no-repeat center; background-size: cover; }
 -------------------------------------*/
 
 .content { padding-top: 100px; padding-bottom: 100px; margin-right:15%; margin-left:15%;font-size: 16px; }
-.content2  { margin-left:15%; font-size: 16px; 
+.content0 { margin-left:13%; margin-right:13%; padding-left:5%; padding-right:5%;
+  padding-top:1%; padding-bottom:7%; font-size: 16px; height:auto;
+  border:1px solid lightgray; width:900px; border-radius: 30px;
+  background-color : white;
+  }
+.content2  { margin-left:15%; font-size: 16px; }
+.content3  { width:100%; height:30px; font-size: 16px; float:left; }
+.content4 { width:33.3%; height:30px; float:left; font-size: 16px;  }
+.content6  { margin-left:5%; font-size: 16px; }
+.contenth { margin-left:35%; margin-right:35%;width:100%; height:30px; font-size: 16px; padding-bottom: 50px;  }
+/* -------------------------------------------
+7.1
+-----------------------------------------
+ */
+ table.type07 {
+  border-collapse: collapse;
+  text-align: left;
+  line-height: 1.5;
+  border: 1px solid #ccc;
+  margin: 20px 10px;
 }
+table.type07 thead {
+  border-right: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+  background: #e7708d;
+}
+table.type07 thead th {
+  padding: 10px;
+  font-weight: bold;
+  vertical-align: top;
+  color: #fff;
+}
+table.type07 tbody th {
+  width: 150px;
+  padding: 10px;
+  font-weight: bold;
+  vertical-align: top;
+  border-bottom: 1px solid #ccc;
+  background: #fcf1f4;
+}
+table.type07 td {
+  width: 350px;
+  padding: 10px;
+  vertical-align: top;
+  border-bottom: 1px solid #ccc;
+}
+
 
 /*-----------------------------------
 8. Footer 
@@ -861,7 +901,7 @@ opacity: .5; }
  table {font-size: 13pt;}
 th,td{vertical-align:top;}
 body {
-  font-size: 13pt; /* font-size 1em = 10px 브라우저의 기본 설정 */
+  font-size: 13pt; /* font-size 1em = 10px ºê¶ó¿ìÀúÀÇ ±âº» ¼³Á¤ */
 }
 span {
   font-size: 13pt; /* 1.6em = 16px */
@@ -870,3 +910,4 @@ b {
   font-size: 13pt; 
 } 
 </STYLE>
+
