@@ -13,14 +13,19 @@ public class SeleniumCrawling {
     
     //Properties
     public static final String WEB_DRIVER_ID = "webdriver.chrome.driver";
-    public static final String WEB_DRIVER_PATH = "D:\\Spring_Prj\\startup\\chromedriver.exe";
+    public static final String WEB_DRIVER_PATH = "C:\\Users\\max1031\\Desktop\\sps\\startup\\chromedriver.exe";
     
     private String base_url;
 
 	public String price_crwaling(String search) {
+		
 		//System Property SetUp
         System.setProperty(WEB_DRIVER_ID, WEB_DRIVER_PATH);
         String price = "null";
+		/*
+		 * String options = webdriver.ChromeOptions(); options.add_argument('headless');
+		 * driver = webdriver.Chrome('chromedriver', chrome_options=options);
+		 */
         //Driver SetUp
         driver = new ChromeDriver();
         base_url = "https://www.coupang.com/np/search?component=&q=" + search +"";

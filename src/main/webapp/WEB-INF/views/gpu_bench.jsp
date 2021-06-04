@@ -68,16 +68,16 @@ try{
 	if (conn != null)
 		conn.close();
 }
+/* 크롤링 시작 */
 
-/*
 
-try{
+/* try{
 	conn = DriverManager.getConnection(jdbcDriver, dbUser, dbPwd);
 	priceinput_pstmt = conn.prepareStatement("update startup.gpu_bench set price = ? where gpu_num = ?");
 	//priceinput_rs = priceinput_pstmt.executeQuery();
 	int a = 0;
 	
-	for(j = 0; j < 50; j++){
+	for(j = 0; j < 100; j++){
 		String temp = seleniumCrawling.price_crwaling(GPU_name[j]);
 		System.out.println(j+"번째에서 걸림--------------------------"+GPU_name[j]);
 		a++;
@@ -104,9 +104,9 @@ try{
 		priceinput_pstmt.close();
 	if (conn != null)
 		conn.close();
-}
-*/
+} */
 
+/* 크롤링 끝 */
 
 
 try {
@@ -205,9 +205,9 @@ try {
 				<div class="box">
 					<div class="box-header with-border">
 
-						<h1 class="box-title"><b>그래픽카드 벤치마크</b></h1><br>
+						<h1 class="box-title"><b>그래픽카드 벤치마크(성능 수치)</b></h1><br>
 						<!-- 차트 그리는 문항 : <div id="chart_div" ></div> -->
-						<div id="chart_div" style="width: 900px; height: 2000px;"></div>
+						<div id="chart_div" style="width: 900px; height: 4000px;"></div>
 					</div>
 					<div class="box-body"></div>
 					<!-- /.box-body -->

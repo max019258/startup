@@ -18,7 +18,7 @@
 	<!-- /.page header -->
 	<div class="content">
 		<center>
-		<h1><b>컴퓨터 부품을 사람과 비유</b></h1>
+		<h1><b>컴퓨터 부품을 사람과 비유 (이미지 클릭시 설명으로 이동)</b></h1>
 			<table style="width: 714px" style="height:714px">
 
 				<tr>

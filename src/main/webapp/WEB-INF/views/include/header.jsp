@@ -18,7 +18,7 @@
 	content="Are you interior design company and looking for startup your website. Download Free Interior Design Website Templates for you suitable to you.">
 <meta name="keywords"
 	content="interior design, furniture, exterior furniture, furniture company, bootstrap interior design website templates, interior design & furniture website templates">
-<title>Interior Design Website Templates Free Download</title>
+<title>StartUP</title>
 <!-- Bootstrap -->
 <link href="resources/css/bootstrap.min.css" rel="stylesheet">
 <!-- Google Fonts -->
@@ -90,7 +90,7 @@ function enterkey() {
 										정보</a>
 									<ul>
 										<li><a href="cpu_bench" title="cpu_bench">CPU</a></li>
-										<li><a href="gpu_bench" title="gpu_bench">GPU</a></li>
+										<li><a href="gpu_bench" title="gpu_bench">VGA</a></li>
 									</ul></li>
 								<li><a href="contact" title="Contact Us">추천견적</a></li>
 							</ul>

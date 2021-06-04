@@ -29,6 +29,16 @@
 				display: none;
 			}
 	</style>
+	<script type="text/javascript">
+	function selectAll(selectAll)  {
+		  const checkboxes 
+		       = document.getElementsByName('program');
+		  
+		  checkboxes.forEach((checkbox) => {
+		    checkbox.checked = selectAll.checked;
+		  })
+		}
+	</script>
 <body>
 
 <!-- head를 포함한 위의 요소들 전부 header.jsp에 있음 -->
@@ -77,9 +87,16 @@
    
    
    <div class="content0">
+   <div class="content3">
+    <input type='checkbox'
+       name='all' 
+       value='selectall'
+       onclick='selectAll(this)'/> 전체 선택      
+   </div>
+   <div class="content3"><hr width=100%></div>
    
  <form action='contact2'>
-  <div class="content3"><b>작업</b></div>
+  <div class="content3"><b>[작업]</b></div>
   <%
   int j=0;  
   for(j=0;j<i;j++)
@@ -98,7 +115,7 @@
   </div>
   <div class="content3">
   
-   <b>게임</b>
+   <b>[게임]</b>
    </div>
   <%
  
@@ -114,13 +131,12 @@
   }  
   %>
   
-    <div class="content3"><input class="btn-default" type ='submit' value="submit"> &nbsp;<br> </div>
-    
-    
+    <div class="content3"><input class="btn-default" type ='submit' value="submit"> &nbsp;    </div>
+   
+ </form>
  
-  
  
-</form>
+
       
 &nbsp;
 

@@ -50,14 +50,24 @@ location.href="contact";
 
 
 
-
 <%
 }
 else
 {
+	
 String[] checked = request.getParameterValues("program"); // 받아온 값 배열로 차례로 넣음
 
 %>
+	<script type="text/javascript">
+	function selectAll(selectAll)  {
+		  const checkboxes 
+		       = document.getElementsByName('program');
+		  
+		  checkboxes.forEach((checkbox) => {
+		    checkbox.checked = selectAll.checked;
+		  })
+		}
+	</script>
 	
 <% 
 int cnt;
@@ -133,10 +143,19 @@ for (i=0;i<cnt;i++)
    
     <div class="content">
      <div class="contenth"><h1><b> 프로그램별 추천 견적 </b></h1> </div>
+   
+    
     <div class="content0">
+   <div class="content3">
+    <input type='checkbox'
+       name='all' 
+       value='selectall'
+       onclick='selectAll(this)'/> 전체 선택      
+   </div>
+   <div class="content3"><hr width=100%></div>
    
  <form action='contact2'>
-   <div class="content3"><b>작업</b></div>
+   <div class="content3"><b>[작업]</b></div>
   <%
   int j=0;  
   for(j=0;j<i;j++)
@@ -170,7 +189,7 @@ for (i=0;i<cnt;i++)
   </div>
   <div class="content3">
   
-   <b>게임</b>
+   <b>[게임]</b>
    </div>
   <%
  

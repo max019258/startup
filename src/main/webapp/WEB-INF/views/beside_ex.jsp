@@ -33,6 +33,7 @@ th,td{vertical-align:top;}
 					<th><img src="resources/images/odd.PNG" height="300px" weight="300px"></th>
 					<th><br>ODD(CDROM): CD ROM이라고도 하는데 단순히 CD를 읽어주는 장비라고 생각하면 된다.<br><br>
 하지만 요즘은 CD를 잘 사용하지 않아서 잘 사용하지는 않는다. 
+
 </th>
 
 

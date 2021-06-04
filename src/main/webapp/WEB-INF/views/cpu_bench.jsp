@@ -68,14 +68,15 @@ try{
 	if (conn != null)
 		conn.close();
 }
-/*
-try{
+ /* 크롤링 시작 */
+
+/* try{
 	conn = DriverManager.getConnection(jdbcDriver, dbUser, dbPwd);
 	priceinput_pstmt = conn.prepareStatement("update startup.cpu_bench set price = ? where cpu_num = ?");
 	//priceinput_rs = priceinput_pstmt.executeQuery();
 	int a = 0;
 	
-	for(j = 0; j < 50; j++){
+	for(j = 0; j < 100; j++){
 		String temp = seleniumCrawling.price_crwaling(CPU_name[j]);
 		System.out.println(j+"번째에서 걸림--------------------------"+CPU_name[j]);
 		a++;
@@ -103,9 +104,9 @@ try{
 	if (conn != null)
 		conn.close();
 }
+ */
 
-*/
-
+/* 크롤링 끝 */
 
 
 try {
@@ -155,7 +156,7 @@ function drawVisualization() {
 		seriesType : 'bars',
 		/**/
 		series: {
-            0: {axis:'gpubench'}, // Bind series 0 to an axis named 'distance'.
+            0: {axis:'cpubench'}, // Bind series 0 to an axis named 'distance'.
             1: {axis:'price'}, // Bind series 1 to an axis named 'brightness'.
           },
 		/**/
@@ -203,7 +204,7 @@ function drawVisualization() {
 					<div class="box-header with-border">
 
 
-						<h1 class="box-title"><b>CPU 벤치마크</b></h1><br>
+						<h1 class="box-title"><b>CPU 벤치마크(성능 수치)</b></h1><br>
 						<!-- 차트 그리는 문항 : <div id="chart_div" ></div> -->
 						<div id="chart_div" style="width: 900px; height: 4000px;"></div>
 					</div>
