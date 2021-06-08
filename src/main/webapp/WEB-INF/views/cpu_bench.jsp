@@ -162,7 +162,7 @@ function drawVisualization() {
 		/**/
 		axes: {
 			x:{
-				gpubench: {side:'top',label: 'benchvalue'},
+				cpubench: {side:'top',label: 'benchvalue'},
 				price: {label: 'price'}
 			}
 		},	

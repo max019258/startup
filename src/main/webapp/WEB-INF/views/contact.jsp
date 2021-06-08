@@ -91,7 +91,7 @@
     <input type='checkbox'
        name='all' 
        value='selectall'
-       onclick='selectAll(this)'/> 전체 선택      
+       onclick='selectAll(this)'/> 전체 선택(두번 클릭시 체크박스 해제)      
    </div>
    <div class="content3"><hr width=100%></div>
    

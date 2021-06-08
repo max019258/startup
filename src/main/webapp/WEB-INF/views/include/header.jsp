@@ -113,7 +113,8 @@ function enterkey() {
 			src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
 			integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
 			crossorigin="anonymous"></script>
-		<script> $('.carousel').carousel({ interval: 2000 //기본 5초 }) </script>
+		<script> $('.carousel').carousel({ interval: 450}) </script>
+		
 		<div class="container"></div>
 		<div id="demo" class="carousel slide" data-ride="carousel">
 			<div class="carousel-inner">

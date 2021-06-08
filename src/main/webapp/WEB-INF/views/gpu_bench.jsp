@@ -154,6 +154,7 @@ try {
 			title : '벤치마크 수치 상위 100위까지의 그래픽카드',
 			fontSize : 12,
 			bars: 'horizontal',
+			
 			legend:{position: 'none'},
 			/**/
 			seriesType : 'bars',
@@ -172,6 +173,7 @@ try {
 			/**/
 			bar : {	groupWidth : "90%"}
 			/**/
+			
 			
 		};
 
