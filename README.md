@@ -34,17 +34,17 @@
 <b>홈 화면</b> <br>
 <img src="https://user-images.githubusercontent.com/71125201/126035488-efe86704-4ef2-4b48-b242-4bafe19f1e86.gif"><br>
 - 드랍다운 메뉴
-- 슬라이드 배너
+- 슬라이드 배너<br>
 
 <b>부품 설명화면</b> <br>
 <img src="https://user-images.githubusercontent.com/71125201/126035484-8667ed23-2c86-450a-970a-7c7e5fd5c603.gif"><br>
 - 컴퓨터를 사람과 비유하여 컴퓨터에 대한 지식이 부족한 사람이 부품을 이해할 수 있도록 이미지 제시
-- 마우스 온 클릭시 파란테두리가 나오게하고 설명이 나오도록 구현
+- 마우스 온 클릭시 파란테두리가 나오게하고 설명이 나오도록 구현<br>
 
 <b>벤치마크 화면</b><br>
 <img src="https://user-images.githubusercontent.com/71125201/126035487-becd1f09-0643-4e26-911b-e0dbae52c7a5.gif"><br>
 - 크롤링을 통해 그래픽카드와 CPU의 최저가를 불러온 후 데이터베이스에 저장
-- 데이터베이스에 있는 그래픽카드 와 CPU의 정보를 가지고 와서 벤치마크 점수 및 최저가 제시
+- 데이터베이스에 있는 그래픽카드 와 CPU의 정보를 가지고 와서 벤치마크 점수 및 최저가 제시<br>
 
 <b>추천 견적 화면</b><br>
 <img src="https://user-images.githubusercontent.com/71125201/126035486-ee606aae-54a5-4f07-ae64-a230bfb84b79.gif"><br>
