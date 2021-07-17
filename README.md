@@ -42,12 +42,12 @@
 - 마우스 온 클릭시 파란테두리가 나오게하고 설명이 나오도록 구현
 
 <b>벤치마크 화면</b><br>
-<img src="https://user-images.githubusercontent.com/71125201/126035488-efe86704-4ef2-4b48-b242-4bafe19f1e86.gif"><br>
+<img src="https://user-images.githubusercontent.com/71125201/126035487-becd1f09-0643-4e26-911b-e0dbae52c7a5.gif"><br>
 - 크롤링을 통해 그래픽카드와 CPU의 최저가를 불러온 후 데이터베이스에 저장
 - 데이터베이스에 있는 그래픽카드 와 CPU의 정보를 가지고 와서 벤치마크 점수 및 최저가 제시
 
-<b>벤치마크 화면</b><br>
-<img src="https://user-images.githubusercontent.com/71125201/126035487-becd1f09-0643-4e26-911b-e0dbae52c7a5.gif"><br>
+<b>추천 견적 화면</b><br>
+<img src="https://user-images.githubusercontent.com/71125201/126035486-ee606aae-54a5-4f07-ae64-a230bfb84b79.gif"><br>
 - 데이터베이스에 있는 프로그램별 최소사양 및 용량들을 불러온다.
 - 체크된 프로그램 중 최소사양이 가장 높은 CPU,VGA,RAM을 가지고 와서 웹UI에 제시.
 - 체크된 프로그램들의 용량을 전부 더하여 웹UI에 제시.
