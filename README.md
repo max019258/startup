@@ -30,7 +30,7 @@
 - DB 구현 및 연동
 - 프로그램별 추천 견적 페이지 기능 및 UI 구현
 
-<b> 데이터베이스 구조도 :</b>
+<b> 데이터베이스 구조도 :</b><br>
 <img src="https://user-images.githubusercontent.com/71125201/126037476-e3737311-0633-4b17-be25-3057a7315da9.png"><br>
 <img src="https://user-images.githubusercontent.com/71125201/126037416-19de460f-a30f-4cfe-b3a7-1b55bcc5a101.png"><br>
 <img src="https://user-images.githubusercontent.com/71125201/126037434-648c5172-7477-47c1-8dbc-6bed0b64bb2e.png"><br>
